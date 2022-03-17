@@ -1,0 +1,55 @@
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.scene.text.Font?>
+<BorderPane fx:id="borderPaneId" fx:controller="sample.Controller"
+            xmlns:fx="http://javafx.com/fxml" >
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem onAction="#showNewItemDailog"   text="New"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit" onAction="#exitPressed"/>
+                    <SeparatorMenuItem/>
+                </Menu>
+            </MenuBar>
+            <ToolBar>
+                <HBox spacing="10">
+                    <Button text="New" onAction="#showNewItemDailog">
+                        <tooltip>
+                            <Tooltip text="add new Item"/>
+                        </tooltip>
+                    </Button>
+                    <ToggleButton onAction="#toggleButtonPressed" fx:id="toggleButton" text="Today Only" >
+                        <tooltip>
+                            <Tooltip text="press if to show today's items only"/>
+                        </tooltip>
+                    </ToggleButton>
+                </HBox>
+            </ToolBar>
+
+        </VBox>
+            </top>
+    <left>
+        <ListView  fx:id="myListView" onKeyReleased="#deletePressed"/>
+    </left>
+    <center >
+        <VBox >
+            <TextArea  fx:id="myTextArea" VBox.vgrow="ALWAYS" style="-fx-background-color:white"/>
+            <HBox>
+                <Label text="Due: ">
+                    <font>
+                        <Font name="Times New Roman bold" size="20"/>
+                    </font>
+                </Label>
+                <Label fx:id="myDateLabel" >
+                    <font>
+                        <Font name="Times New Roman bold" size="20"/>
+                    </font>
+                </Label>
+            </HBox>
+        </VBox>
+            </center>
+</BorderPane>
